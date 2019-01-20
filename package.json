@@ -1,0 +1,44 @@
+{
+  "name": "tunelo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "ts-node -r ./hmr.js src/main.tsx",
+    "build": "ncc build -C src/main.tsx",
+    "package": "electron-builder",
+    "start": "npm run build && node dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "16.7.0-alpha.2",
+    "react-reconciler": "0.18.0-alpha.2",
+    "scheduler": "0.12.0-alpha.2",
+    "node-webrender": "^0.1.11",
+    "ssh2": "^0.6.1"
+  },
+  "devDependencies": {
+    "@types/node": "^10.12.14",
+    "@types/react": "^16.7.18",
+    "@types/react-native": "^0.57.25",
+    "hot-module-replacement": "^3.0.2",
+    "react-devtools-core": "^3.4.3",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.2.2",
+    "ws": "^6.1.2"
+  },
+  "build": {
+    "protonNodeVersion": "current",
+    "npmRebuild": false,
+    "directories": {
+      "output": "dist-app"
+    },
+    "files": [
+      "dist",
+      "!dist/target",
+      "!node_modules"
+    ]
+  }
+}
